@@ -12,6 +12,11 @@ const choices = [
   "Exit"
 ]
 
+const boxenStyle = {
+  padding: 1,
+  borderStyle: 'double'
+};
+
 const resumeOptions = {
   type: "list",
   name: "resumeOptions",
@@ -20,26 +25,25 @@ const resumeOptions = {
 };
 
 function showHeader() {
-  const style = {
-    padding: 1,
-    borderStyle: 'double'
-  };
   const name      = `Hi! I am ${chalk.bold("Ahmad")} ${chalk.bold.cyan("Fahmi")} ${chalk.bold("Pratama")}`;
   const desc      = "Engineer x Designer x Full-time noodle eater";
   const text      = `${name}\n${desc}`;
-  console.log(boxen(text, style));
+  console.log(boxen(text, boxenStyle));
   console.log();
-}
-
-function showContacts() {
-  const linkedin  = `linkedin: ${chalk.black.bgCyan(" linkedin.com/in/ahmadfahmipratama ")}`;
-  const repo      = `github:   ${chalk.black.bgMagenta(" github.com/ahmadfahmip ")}`;
-  const email     = `email:    ${chalk.black.bgGreen(" ahmad.fahmi.pratama@gmail.com ")}`;
 }
 
 function showResume() {
   showHeader();
   handleResume();
+}
+
+function showContacts() {
+  const linkedin  = `linkedin: ${chalk.black.bgCyan(" linkedin.com/in/ahmadfahmipratama ")}`;
+  const repo      = `github:   ${chalk.black.bgGreen(" github.com/ahmadfahmip ")}`;
+  const email     = `email:    ${chalk.black.bgYellow(" ahmad.fahmi.pratama@gmail.com ")}`;
+  const text      = `${linkedin}\n${repo}\n${email}`;
+  console.log(boxen(text, boxenStyle));
+  console.log();
 }
 
 function showEducation() {
@@ -74,6 +78,9 @@ function handleResume() {
         break;
       case "Experiences":
         showExperiences();
+        break;
+      case "Contacts":
+        showContacts();
         break;
       default:
         break;
