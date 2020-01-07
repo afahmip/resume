@@ -1,0 +1,13 @@
+{
+  "name": "ahmadfahmip",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ahmadfahmip/resume.git",
+  "author": "ahmadfahmip",
+  "license": "MIT",
+  "dependencies": {
+    "boxen": "^4.2.0",
+    "chalk": "^3.0.0",
+    "inquirer": "^7.0.3"
+  }
+}
