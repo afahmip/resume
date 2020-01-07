@@ -1,4 +1,24 @@
 {
-  "Education": ["Lorem ipsum"],
-  "Experience": ["Lorem hehe"]
+  "Experiences": [
+    {
+      "title": "Xendit - Software Engineer Intern",
+      "period": "Dec 2019 - present",
+      "location": "Greater Jakarta Area, Indonesia"
+    },
+    {
+      "title": "Blibli - Software Engineer Intern",
+      "period": "May - Aug 2019",
+      "location": "Greater Jakarta Area, Indonesia"
+    },
+    {
+      "title": "Jojonomic - Software Engineer Part-time",
+      "period": "Oct 2018 - Jan 2019",
+      "location": "Bandung, Indonesia"
+    },
+    {
+      "title": "Mapan - Software Engineer Intern",
+      "period": "Jun - Aug 2018",
+      "location": "Greater Jakarta Area, Indonesia"
+    }
+  ]
 }

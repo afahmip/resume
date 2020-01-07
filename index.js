@@ -5,14 +5,18 @@ const chalk = require("chalk");
 const boxen = require('boxen');
 const data = require("./data.json");
 
-// add response color
-const response = chalk.bold.blue;
+const choices = [
+  "Education",
+  "Experiences",
+  "Contacts",
+  "Exit"
+]
 
 const resumeOptions = {
   type: "list",
   name: "resumeOptions",
   message: "Want to know more about me?",
-  choices: [...Object.keys(data), "Exit"]
+  choices
 };
 
 function showHeader() {
@@ -20,7 +24,7 @@ function showHeader() {
     padding: 1,
     borderStyle: 'double'
   };
-  const name      = `Hi! I am ${chalk.bold("Ahmad Fahmi Pratama")}`;
+  const name      = `Hi! I am ${chalk.bold("Ahmad")} ${chalk.bold.cyan("Fahmi")} ${chalk.bold("Pratama")}`;
   const desc      = "Engineer x Designer x Full-time noodle eater";
   const text      = `${name}\n${desc}`;
   console.log(boxen(text, style));
@@ -34,37 +38,49 @@ function showContacts() {
 }
 
 function showResume() {
-  // console.log("Hello, this is my resume");
   showHeader();
   handleResume();
+}
+
+function showEducation() {
+  console.log();
+  console.log(`${chalk.cyan.underline.bold('Bandung Institute of Technology')}, ${chalk.bold('B.Eng')}`);
+  console.log(`|>  Major      : ${chalk.bold('Computer Science')}`);
+  console.log(`|>  Graduation : ${chalk.bold('2020 (expected)')}`);
+  console.log(`|>  Activities : ${chalk.bold('Teaching assistant')}`);
+  console.log(`                 ${chalk.bold('Head of UX community')}`)
+  console.log(`                 ${chalk.bold('Freelance developer')}`)
+  console.log();
+}
+
+function showExperiences() {
+  console.log();
+  data["Experiences"].map(d => {
+    console.log(chalk.bold.underline.magenta(d.title));
+    console.log(`|>  ${d.period}`);
+  });
+  console.log(`\nWant to know more? ${chalk.cyan.bold('find my LinkedIn on "Contacts"')}\n`);
 }
 
 function handleResume() {
   inquirer.prompt(resumeOptions).then(answer => {
     if (answer.resumeOptions == "Exit") return;
 
-    const options = data[`${answer.resumeOptions}`]
-    if (options) {
-      console.log(response(new inquirer.Separator()));
-      options.forEach(info => {
-        console.log(response("|   => " + info));
-      });
-      console.log(response(new inquirer.Separator()));
+    switch (answer.resumeOptions) {
+      case "Exit":
+        return;
+      case "Education":
+        showEducation();
+        break;
+      case "Experiences":
+        showExperiences();
+        break;
+      default:
+        break;
     }
 
-    inquirer
-      .prompt({
-        type: "list",
-        name: "exitBack",
-        message: "Go back or Exit?",
-        choices: ["Back", "Exit"]
-      }).then(choice => {
-        if (choice.exitBack == "Back") {
-          handleResume();
-        } else {
-          return;
-        }
-      });
+    handleResume();
+
   }).catch(err => console.log('Ooops,', err))
 }
 
