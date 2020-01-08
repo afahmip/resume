@@ -38,9 +38,9 @@ function showResume() {
 }
 
 function showContacts() {
-  const linkedin  = `linkedin: ${chalk.black.bgCyan(" linkedin.com/in/ahmadfahmipratama ")}`;
-  const repo      = `github:   ${chalk.black.bgGreen(" github.com/ahmadfahmip ")}`;
-  const email     = `email:    ${chalk.black.bgYellow(" ahmad.fahmi.pratama@gmail.com ")}`;
+  const linkedin  = `linkedin: ${chalk.bgHex("#00bde8").black(" linkedin.com/in/ahmadfahmipratama ")}`;
+  const repo      = `github:   ${chalk.bgHex("#00d9e8").black(" github.com/ahmadfahmip ")}`;
+  const email     = `email:    ${chalk.bgHex("#00e8d5").black(" ahmad.fahmi.pratama@gmail.com ")}`;
   const text      = `${linkedin}\n${repo}\n${email}`;
   console.log(boxen(text, boxenStyle));
   console.log();
@@ -48,9 +48,9 @@ function showContacts() {
 
 function showEducation() {
   console.log();
-  console.log(`${chalk.cyan.underline.bold('Bandung Institute of Technology')}, ${chalk.bold('B.Eng')}`);
+  console.log(`${chalk.hex("#00d1e8").underline.bold('Bandung Institute of Technology')}, ${chalk.bold('B.Eng')}`);
   console.log(`|>  Major      : ${chalk.bold('Computer Science')}`);
-  console.log(`|>  Graduation : ${chalk.bold('2020 (expected)')}`);
+  console.log(`|>  Graduation : ${chalk.bold('Jul 2020 (expected)')}`);
   console.log(`|>  Activities : ${chalk.bold('Teaching assistant')}`);
   console.log(`                 ${chalk.bold('Head of UX community')}`)
   console.log(`                 ${chalk.bold('Freelance developer')}`)
@@ -60,7 +60,7 @@ function showEducation() {
 function showExperiences() {
   console.log();
   data["Experiences"].map(d => {
-    console.log(chalk.bold.underline.magenta(d.title));
+    console.log(chalk.bold.hex("#00e8e0").underline(d.title));
     console.log(`|>  ${d.period}`);
   });
   console.log(`\nWant to know more? ${chalk.cyan.bold('find my LinkedIn on "Contacts"')}\n`);
